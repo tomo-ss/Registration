@@ -8,7 +8,20 @@
     </head>
 
 <body>
-<p>アカウント登録画面</p>
+         <header>
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li>プロフィール</li>
+                <li>D.I.Blogについて</li>
+                <li>登録フォーム</li>
+                <li>問い合わせ</li>
+                <li><a href="regist.php">アカウント登録</a></li>
+                <li>その他</li>
+                
+            </ul>
+        </header>
+<main>
+<h1>アカウント登録画面</h1>
 <form action="regist_confirm.php" method="POST" id="registerForm" class="form-layout">
   <div class="form-group">
     <label for="last_name">名前（姓）</label>
@@ -127,4 +140,11 @@
     <button type="submit">確認する</button>
   </div>
 </form>
-</body>
+</main>
+
+ <footer>
+        Copyright D.I.Works D.I.blog is the one which provides A to Z about programming
+ </footer>
+
+ </body>
+</html>
