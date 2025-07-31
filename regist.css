@@ -1,0 +1,89 @@
+
+/* ヘッダーのスタイル*/
+header{
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+
+/* ヘッダー内のリスト項目のスタイル */
+header ul li{
+    float: left;
+    list-style: none;
+    padding-right: 20px;
+    padding-top: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+/* ヘッダー内ホバーアクション */
+header ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+header ul li a:hover {
+  color: blue;
+  border-bottom: 2px solid blue;
+}
+
+/* タイトルのスタイル */
+main h1 {
+  padding: 50px;
+}
+
+
+
+/* フォームの外枠を中央寄せ */
+.form-layout {
+  max-width: 500px; 
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#postcode,
+#prefecture,
+#authority {
+  flex: none;         
+  width: 140px;
+}
+
+
+/* 各フィールドの余白と配置 */
+.form-group {
+  margin-bottom: 20px; 
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  width: 140px;        
+  text-align: right;   
+  margin-right: 30px;  
+}
+
+.form-group input,
+.form-group select {
+  flex: 1;             
+}
+
+/* ボタンのスタイル */
+.form-group button {
+margin: 0 auto;
+}
+
+/* フッターのスタイル */
+footer{
+    clear: left;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    bottom: 0;
+    color: white;
+    background-color: black;
+    line-height: 60px;
+}
