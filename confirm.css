@@ -1,0 +1,91 @@
+/* ヘッダーのスタイル*/
+header{
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+}
+
+/* ヘッダー内のリスト項目のスタイル */
+header ul li{
+    float: left;
+    list-style: none;
+    padding-right: 20px;
+    padding-top: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+/* ヘッダー内ホバーアクション */
+header ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+header ul li a:hover {
+  color: blue;
+  border-bottom: 2px solid blue;
+}
+
+/* タイトルのスタイル */
+main h1 {
+  padding: 50px;
+}
+
+
+/* メインのスタイル */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;            
+}
+
+main h1 {
+  align-self: flex-start;
+}
+
+/* テーブルスタイル */
+table th, table td {
+  padding: 30px 40px; 
+}
+
+
+/* ボタンのスタイル */
+.button-wrapper {
+  display: flex;
+  justify-content: center;   
+  gap: 100px;                 
+  margin-top: 30px;       
+}
+
+.button-wrapper button {
+  padding: 10px 30px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* フッターのスタイル */
+footer{
+    position: absolute;
+    clear: left;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    bottom: 0;
+    color: white;
+    background-color: black;
+    line-height: 60px;
+}
