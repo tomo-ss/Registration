@@ -1,4 +1,5 @@
 <?php
+// 登録フォームからPOSTで送られたデータを取得
 $last_name        = $_POST['last_name'];
 $first_name       = $_POST['first_name'];
 $last_name_kana   = $_POST['last_name_kana'];
@@ -12,6 +13,7 @@ $city             = $_POST['city'];
 $address          = $_POST['address'];
 $authority        = $_POST['authority'];
 
+// パスワードは確認画面では伏せて表示
 $hidden_password = str_repeat("●", strlen($password));
 ?>
 <!DOCTYPE html>
@@ -37,6 +39,8 @@ $hidden_password = str_repeat("●", strlen($password));
 
   <main>
     <h1>アカウント登録内容確認</h1>
+
+    <!-- 登録した情報を表形式で表示。-->
     <table>
       <tr><th>名前（姓）</th><td><?= htmlspecialchars($last_name) ?></td></tr>
       <tr><th>名前（名）</th><td><?= htmlspecialchars($first_name) ?></td></tr>
@@ -52,8 +56,9 @@ $hidden_password = str_repeat("●", strlen($password));
       <tr><th>アカウント権限</th><td><?= htmlspecialchars($authority) ?></td></tr>
     </table>
 
-  
+   <!-- 確認した内容を hidden で保持し、次の処理（登録 or 戻る）へ -->
     <form method="POST">
+      <!-- 入力された各情報を hidden にして保持 -->
       <input type="hidden" name="last_name" value="<?= htmlspecialchars($last_name) ?>">
       <input type="hidden" name="first_name" value="<?= htmlspecialchars($first_name) ?>">
       <input type="hidden" name="last_name_kana" value="<?= htmlspecialchars($last_name_kana) ?>">

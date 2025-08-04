@@ -1,4 +1,5 @@
 <?php
+// フォームから送信された各項目を受け取り、未定義の場合は空文字にする
 $last_name       = $_POST['last_name'] ?? '';
 $first_name      = $_POST['first_name'] ?? '';
 $last_name_kana  = $_POST['last_name_kana'] ?? '';
@@ -12,6 +13,7 @@ $city            = $_POST['city'] ?? '';
 $address         = $_POST['address'] ?? '';
 $authority       = $_POST['authority'] ?? '';
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -34,6 +36,8 @@ $authority       = $_POST['authority'] ?? '';
 
 <main>
 <h1>アカウント登録画面</h1>
+
+ <!-- フォームの送信先とメソッド設定 -->
 <form action="regist_confirm.php" method="POST" id="registerForm" class="form-layout">
   <div class="form-group">
     <label for="last_name">名前（姓）</label>
@@ -79,6 +83,7 @@ $authority       = $_POST['authority'] ?? '';
   <div class="form-group">
     <label for="prefecture">住所（都道府県）</label>
     <select name="prefecture" id="prefecture" required>
+
       <option value="">選択してください</option>
       <?php
       $prefs = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
