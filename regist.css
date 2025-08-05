@@ -71,10 +71,26 @@ main h1 {
   flex: 1;             
 }
 
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/*エラーメッセージ */
+.error-message {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+  display: block;
+}
+
+
 /* ボタンのスタイル */
 .form-group button {
 margin: 0 auto;
 }
+
+
 
 /* フッターのスタイル */
 footer{
