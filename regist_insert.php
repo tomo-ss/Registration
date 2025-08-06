@@ -5,6 +5,10 @@ try {
   // ユーザー名: root / パスワード: mysql
   $pdo = new PDO("mysql:host=localhost;dbname=d.i_blog;charset=utf8", "root", "mysql");
 
+
+   // パスワードをハッシュ化
+  $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
   // 登録用SQL文を準備（12項目を登録）
   $sql = "INSERT INTO account (
     family_name, last_name, family_name_kana, last_name_kana,
@@ -21,7 +25,7 @@ try {
     $_POST['last_name_kana'],
     $_POST['first_name_kana'],
     $_POST['email'],
-    $_POST['password'],
+    $hashed_password,
     $_POST['gender'],
     $_POST['postcode'],
     $_POST['prefecture'],
@@ -36,6 +40,6 @@ try {
 
 } catch (PDOException $e) {
 //  エラー発生時 → メッセージ表示
-  echo "登録失敗: " . $e->getMessage();
+   echo '<p style="color: red;">エラーが発生したためアカウント登録できません。</p>';
 }
 ?>
