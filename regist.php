@@ -51,7 +51,7 @@ $authority       = $_POST['authority'] ?? '';
     inputGroup('名前（名）', 'first_name', 'text', 10, $first_name);
     inputGroup('カナ（姓）', 'last_name_kana', 'text', 10, $last_name_kana);
     inputGroup('カナ（名）', 'first_name_kana', 'text', 10, $first_name_kana);
-    inputGroup('メールアドレス', 'email', 'email', 100, $email);
+    inputGroup('メールアドレス', 'email', 'text', 100, $email);
     inputGroup('パスワード', 'password', 'password', 10, $password);
   ?>
 
@@ -68,7 +68,7 @@ $authority       = $_POST['authority'] ?? '';
   <div class="form-group">
     <label for="prefecture">住所（都道府県）</label>
     <div class="input-wrap">
-      <select name="prefecture" id="prefecture" required>
+      <select name="prefecture" id="prefecture">
         <option value="">選択してください</option>
         <?php
         $prefs = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",

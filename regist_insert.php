@@ -1,7 +1,6 @@
 <?php
 try {
   // データベースへ接続
-  // ホスト: localhost / データベース名: d.i_blog / 文字コード: UTF-8
   // ユーザー名: root / パスワード: mysql
   $pdo = new PDO("mysql:host=localhost;dbname=d.i_blog;charset=utf8", "root", "mysql");
 
