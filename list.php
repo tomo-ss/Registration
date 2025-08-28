@@ -56,35 +56,32 @@ $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>削除フラグ</th>
             <th>登録日時</th>
             <th>更新日時</th>
-            <th>更新</th>
-            <th>削除</th>
+            <th>操作</th>
         </tr>
         <?php foreach ($accounts as $account): ?>
-        <tr>
-            <td><?= htmlspecialchars($account['id']) ?></td>
-            <td><?= htmlspecialchars($account['family_name']) ?></td>
-            <td><?= htmlspecialchars($account['last_name']) ?></td>
-            <td><?= htmlspecialchars($account['family_name_kana']) ?></td>
-            <td><?= htmlspecialchars($account['last_name_kana']) ?></td>
-            <td><?= htmlspecialchars($account['mail']) ?></td>
-            <td><?= $account['gender'] == 0 ? '男' : '女' ?></td>
-            <td><?= $account['authority'] == 0 ? '一般' : '管理者' ?></td>
-            <td><?= $account['delete_flag'] == 0 ? '有効' : '無効' ?></td>
-            <td><?= date('Y-m-d', strtotime($account['registered_time'])) ?></td>
-            <td><?= date('Y-m-d', strtotime($account['update_time'])) ?></td>
-            <td>
-                <form action="update.php" method="get">
-                    <input type="hidden" name="id" value="<?= $account['id'] ?>">
-                    <button type="submit">更新</button>
-                </form>
-            </td>
-            <td>
-                <form action="delete.php" method="get">
-                    <input type="hidden" name="id" value="<?= $account['id'] ?>">
-                    <button type="submit">削除</button>
-                </form>
-            </td>
-        </tr>
+<tr>
+    <td><?= htmlspecialchars($account['id']) ?></td>
+    <td><?= htmlspecialchars($account['family_name']) ?></td>
+    <td><?= htmlspecialchars($account['last_name']) ?></td>
+    <td><?= htmlspecialchars($account['family_name_kana']) ?></td>
+    <td><?= htmlspecialchars($account['last_name_kana']) ?></td>
+    <td><?= htmlspecialchars($account['mail']) ?></td>
+    <td><?= $account['gender'] == 0 ? '男' : '女' ?></td>
+    <td><?= $account['authority'] == 0 ? '一般' : '管理者' ?></td>
+    <td><?= $account['delete_flag'] == 0 ? '有効' : '無効' ?></td>
+    <td><?= date('Y-m-d', strtotime($account['registered_time'])) ?></td>
+    <td><?= date('Y-m-d', strtotime($account['update_time'])) ?></td>
+    <td>
+        <form action="update.php" method="get" style="display:inline;">
+            <input type="hidden" name="id" value="<?= $account['id'] ?>">
+            <button type="submit">更新</button>
+        </form>
+        <form action="delete.php" method="get" style="display:inline;">
+            <input type="hidden" name="id" value="<?= $account['id'] ?>">
+            <button type="submit">削除</button>
+        </form>
+    </td>
+</tr>
         <?php endforeach; ?>
     </table>
         </main>
