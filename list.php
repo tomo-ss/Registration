@@ -13,7 +13,7 @@ try {
 }
 
 // アカウント一覧取得（ID降順）
-$sql = "SELECT * FROM account ORDER BY id DESC";
+$sql = "SELECT * FROM account WHERE delete_flag = 0 ORDER BY id DESC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
