@@ -1,5 +1,6 @@
 <?php
 require_once 'db_connect.php'; // DB接続
+$pdo = db_connect();
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
