@@ -2,27 +2,44 @@
 require_once('db_connect.php');
 session_start();
 
-// 削除対象のIDを取得
-$id = $_GET['id'] ?? null;
+$error_message = '';
+$id = $_POST['id'] ?? null;
 
 if (!$id || !is_numeric($id)) {
-    // IDが不正 → エラー画面へ
-    header('Location: error.php');
-    exit;
-}
+    $error_message = "IDが不正です。";
+} else {
+    try {
+        $pdo = db_connect();
+        $stmt = $pdo->prepare("UPDATE account SET delete_flag = 1 WHERE id = ?");
+        $stmt->execute([$id]);
 
-try {
-    $dbh = db_connect();
-    $sql = 'DELETE FROM users WHERE id = :id';
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-
-    // 削除成功 → 完了画面へ
-    header('Location: delete_complete.php');
-    exit;
-} catch (PDOException $e) {
-    // 削除失敗 → エラー画面へ
-    header('Location: error.php');
-    exit;
+        // 削除成功 → 完了画面へ
+        header("Location: delete_complete.php");
+        exit;
+    } catch (PDOException $e) {
+        $error_message = "エラーが発生したためアカウント削除できません。";
+    }
 }
+?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>削除エラー</title>
+    <style>
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 80px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <?php if ($error_message): ?>
+        <div class="error"><?= htmlspecialchars($error_message) ?></div>
+    <?php endif; ?>
+</body>
+</html>
