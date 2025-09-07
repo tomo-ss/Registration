@@ -1,0 +1,84 @@
+/* 全体のスタイル */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* メイン領域 */
+main {
+  flex: 1;
+  padding: 40px;
+}
+
+/* タイトルは左寄せ */
+main h1,
+main h2 {
+  font-size: 48px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* テーブルは中央寄せのみ（装飾なし） */
+table {
+  margin: 0 auto;
+}
+
+/* ボタンは中央寄せのみ（装飾なし） */
+form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+/* ヘッダーのスタイル */
+header {
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+header ul li {
+  list-style: none;
+  padding: 0 20px;
+  color: white;
+  font-size: 18px;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+header ul li a:hover {
+  color: blue;
+  border-bottom: 2px solid blue;
+}
+
+/* フッターのスタイル */
+footer {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  line-height: 60px;
+  margin-top: auto;
+}
