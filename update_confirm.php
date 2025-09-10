@@ -2,7 +2,9 @@
 require_once 'db_connect.php';
 session_start();
 
-// POSTデータの取得
+// POSTデータの取得とセッション保存
+$_SESSION['form_data'] = $_POST;
+
 $id                = $_POST['id'] ?? '';
 $family_name       = $_POST['family_name'] ?? '';
 $last_name         = $_POST['last_name'] ?? '';
@@ -21,7 +23,7 @@ $authority_raw     = $_POST['authority'] ?? '';
 $gender = ($gender_raw === '男' || $gender_raw === '0') ? 0 : (($gender_raw === '女' || $gender_raw === '1') ? 1 : null);
 $authority = ($authority_raw === '一般' || $authority_raw === '0') ? 0 : (($authority_raw === '管理者' || $authority_raw === '1') ? 1 : null);
 
-// 表示用に性別と権限を文字列化（万が一 raw が数値だった場合も補完）
+// 表示用に性別と権限を文字列化
 $gender_display = ($gender === 0) ? '男' : (($gender === 1) ? '女' : '');
 $authority_display = ($authority === 0) ? '一般' : (($authority === 1) ? '管理者' : '');
 
@@ -66,24 +68,31 @@ $hidden_password = str_repeat("●", mb_strlen($password));
       <tr><th>アカウント権限</th><td><?= htmlspecialchars($authority_display) ?></td></tr>
     </table>
 
-    <form method="POST">
-      <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
-      <input type="hidden" name="family_name" value="<?= htmlspecialchars($family_name) ?>">
-      <input type="hidden" name="last_name" value="<?= htmlspecialchars($last_name) ?>">
-      <input type="hidden" name="family_name_kana" value="<?= htmlspecialchars($family_name_kana) ?>">
-      <input type="hidden" name="last_name_kana" value="<?= htmlspecialchars($last_name_kana) ?>">
-      <input type="hidden" name="mail" value="<?= htmlspecialchars($mail) ?>">
-      <input type="hidden" name="password" value="<?= htmlspecialchars($password) ?>">
-      <input type="hidden" name="gender" value="<?= $gender ?>">
-      <input type="hidden" name="postal_code" value="<?= htmlspecialchars($postal_code) ?>">
-      <input type="hidden" name="prefecture" value="<?= htmlspecialchars($prefecture) ?>">
-      <input type="hidden" name="address_1" value="<?= htmlspecialchars($address_1) ?>">
-      <input type="hidden" name="address_2" value="<?= htmlspecialchars($address_2) ?>">
-      <input type="hidden" name="authority" value="<?= $authority ?>">
+    <div class="button-group">
+  <!-- 更新処理用フォーム（hidden + ボタン） -->
+  <form method="POST" action="update_process.php">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
+    <input type="hidden" name="family_name" value="<?= htmlspecialchars($family_name) ?>">
+    <input type="hidden" name="last_name" value="<?= htmlspecialchars($last_name) ?>">
+    <input type="hidden" name="family_name_kana" value="<?= htmlspecialchars($family_name_kana) ?>">
+    <input type="hidden" name="last_name_kana" value="<?= htmlspecialchars($last_name_kana) ?>">
+    <input type="hidden" name="mail" value="<?= htmlspecialchars($mail) ?>">
+    <input type="hidden" name="password" value="<?= htmlspecialchars($password) ?>">
+    <input type="hidden" name="gender" value="<?= $gender ?>">
+    <input type="hidden" name="postal_code" value="<?= htmlspecialchars($postal_code) ?>">
+    <input type="hidden" name="prefecture" value="<?= htmlspecialchars($prefecture) ?>">
+    <input type="hidden" name="address_1" value="<?= htmlspecialchars($address_1) ?>">
+    <input type="hidden" name="address_2" value="<?= htmlspecialchars($address_2) ?>">
+    <input type="hidden" name="authority" value="<?= $authority ?>">
+    <button type="submit" class="action-button">更新する</button>
+  </form>
 
-      <button type="submit" formaction="update_process.php">更新する</button>
-      <button type="submit" formaction="update.php?id=<?= urlencode($id) ?>">前に戻る</button>
-    </form>
+  <!-- 戻る操作用フォーム -->
+  <form method="POST" action="update.php?id=<?= urlencode($id) ?>">
+    <input type="hidden" name="back" value="1">
+    <button type="submit" class="action-button">前に戻る</button>
+  </form>
+</div>
   </main>
 
   <footer>

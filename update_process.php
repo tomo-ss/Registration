@@ -78,12 +78,10 @@ if (!$error_message) {
   <title>更新エラー</title>
 </head>
 <body>
-  <h1>アカウント更新エラー</h1>
   <?php if ($error_message): ?>
     <p style="color:red"><?= htmlspecialchars($error_message) ?></p>
   <?php endif; ?>
   <form method="POST" action="update.php?id=<?= urlencode($id) ?>">
-    <button type="submit">更新画面に戻る</button>
   </form>
 </body>
 </html>
