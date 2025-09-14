@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== '管理者') {
+    echo "<p style='color:red;'>権限がないため操作できません。</p>";
+    exit;
+}
+?>
+
+<?php
 $last_name       = $_POST['last_name'] ?? '';
 $first_name      = $_POST['first_name'] ?? '';
 $last_name_kana  = $_POST['last_name_kana'] ?? '';
@@ -23,12 +31,13 @@ $authority       = $_POST['authority'] ?? '';
 <body>
   <header>
     <ul>
-      <li><a href="index.html">トップ</a></li>
+      <li><a href="index.php">トップ</a></li>
       <li>プロフィール</li>
       <li>D.I.Blogについて</li>
       <li>登録フォーム</li>
       <li>問い合わせ</li>
       <li><a href="regist.php">アカウント登録</a></li>
+      <li><a href="list.php">アカウント一覧</a></li>
       <li>その他</li>
     </ul>
   </header>

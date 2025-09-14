@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== '管理者') {
+    echo "<p style='color:red;'>権限がないため操作できません。</p>";
+    exit;
+}
+?>
+
+<?php
 // DB接続情報
 $dsn = 'mysql:host=localhost;dbname=d.i_blog;charset=utf8';
 $user = 'root';
@@ -30,7 +38,7 @@ $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
   <header>
     <ul>
-      <li><a href="index.html">トップ</a></li>
+      <<li><a href="index.php">トップ</a></li>
       <li>プロフィール</li>
       <li>D.I.Blogについて</li>
       <li>登録フォーム</li>

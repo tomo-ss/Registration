@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== '管理者') {
+    echo "<p style='color:red;'>権限がないため操作できません。</p>";
+    exit;
+}
+?>
+
+<?php
 require_once 'db_connect.php'; // DB接続
 $pdo = db_connect();
 
@@ -29,7 +37,8 @@ if (!$account) {
 <body>
   <header>
     <ul>
-      <li><a href="index.html">トップ</a></li>
+      
+    
       <li>プロフィール</li>
       <li>D.I.Blogについて</li>
       <li>登録フォーム</li>
