@@ -13,7 +13,7 @@ unset($_SESSION['error']);
 <body>
   <header>
     <ul>
-      <li><a href="index.html">トップ</a></li>
+      <li><a href="index.php">トップ</a></li>
       <li>プロフィール</li>
       <li>D.I.Blogについて</li>
       <li>登録フォーム</li>
@@ -31,10 +31,10 @@ unset($_SESSION['error']);
 
     <form method="POST" action="login_process.php">
       <label for="mail">メールアドレス：</label><br>
-      <input type="text" name="mail" id="mail" maxlength="100" required><br><br>
+      <input type="text" name="mail" id="mail" maxlength="100"><br><br>
 
       <label for="password">パスワード：</label><br>
-      <input type="password" name="password" id="password" maxlength="10" required><br><br>
+      <input type="password" name="password" id="password" maxlength="10"><br><br>
 
       <button type="submit">ログイン</button>
     </form>
