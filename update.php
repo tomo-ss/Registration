@@ -1,14 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== '管理者') {
+if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== 1) {
     echo "<p style='color:red;'>権限がないため操作できません。</p>";
     exit;
 }
-?>
 
-<?php
 require_once 'db_connect.php';
-session_start();
 
 $id = $_GET['id'] ?? null;
 
@@ -138,8 +135,8 @@ try {
 
       <label>アカウント権限：
         <select name="authority">
-          <option value="一般" <?= $form_data['authority'] == 0 ? 'selected' : '' ?>>一般</option>
-          <option value="管理者" <?= $form_data['authority'] == 1 ? 'selected' : '' ?>>管理者</option>
+          <option value="0" <?= $form_data['authority'] == 0 ? 'selected' : '' ?>>一般</option>
+          <option value="1" <?= $form_data['authority'] == 1 ? 'selected' : '' ?>>管理者</option>
         </select>
       </label>
 

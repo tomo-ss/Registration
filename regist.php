@@ -1,12 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== '管理者') {
+if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== 1) {
     echo "<p style='color:red;'>権限がないため操作できません。</p>";
     exit;
 }
-?>
 
-<?php
 $last_name       = $_POST['last_name'] ?? '';
 $first_name      = $_POST['first_name'] ?? '';
 $last_name_kana  = $_POST['last_name_kana'] ?? '';

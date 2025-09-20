@@ -1,12 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== '管理者') {
+if (!isset($_SESSION['authority']) || $_SESSION['authority'] !== 1) {
     echo "<p style='color:red;'>権限がないため操作できません。</p>";
     exit;
 }
-?>
 
-<?php
 require_once 'db_connect.php'; // DB接続
 $pdo = db_connect();
 
