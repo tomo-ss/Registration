@@ -45,6 +45,51 @@ header ul li a:hover {
     border-bottom: 2px solid blue;
 }
 
+/* 検索フォームのスタイル */
+.search-form {
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.search-form table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.search-form th,
+.search-form td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.search-form td[colspan="3"] {
+  width: 75%; 
+}
+
+
+.search-form input[type="text"],
+.search-form select {
+  max-width: 100%;
+  width: 95%;
+}
+
+
+.search-form .radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.search-form button {
+  display: block;
+  margin-top: 15px;
+  margin-left: auto;
+  padding: 10px 20px;
+}
+
 /* テーブルのスタイル */
 table {
     border-collapse: collapse;
